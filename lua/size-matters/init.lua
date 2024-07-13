@@ -41,11 +41,11 @@ function M.update_font(modification, amount)
 		end
 	end
 
-	vim.opt.guifont = guifont
+	vim.cmd(":GuiFont! " .. guifont)
 end
 
 function M.reset_font()
-	vim.opt.guifont = config.reset_font
+	vim.cmd(":GuiFont! " .. config.reset_font)
 
 	if not config.notifications or not config.notifications.enable then return end
 	notifications.send(" " .. config.reset_font, config.notifications)

@@ -10,6 +10,10 @@ Lua plugin that adds dynamic font scaling to modern neovim GUI clients like [neo
 | Decrease font size    | <kbd>Ctrl</kbd>+<kbd>-</kbd> / <kbd>Ctrl</kbd>+<kbd>ScrollDown</kbd> | `FontSizeDown <num>` |
 | Reset font to default | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>=</kbd>                          | `FontReset`          |
 
+## Prg318 Fork Changes
+
+This fork uses `:GuiFont!` to set the font, so that warnings about pitch metrics are not displayed.
+
 ## Installation
 
 A simple way to install the plugin is via a plugin manager. E.g., [packer.nvim][3]
