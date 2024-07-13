@@ -59,6 +59,7 @@ cmd("FontReset", function() M.reset_font() end, {})
 if config.default_mappings then
 	local map = vim.keymap.set
 	map("n", "<C-+>", function() M.update_font "grow" end, { desc = "Increase font size" })
+	map("n", "<C-=>", function() M.update_font "grow" end, { desc = "Increase font size" })
 	map("n", "<C-S-+>", function() M.update_font "grow" end, { desc = "Increase font size" })
 	map("n", "<C-->", function() M.update_font "shrink" end, { desc = "Decrease font size" })
 	map("n", "<C-ScrollWheelUp>", function() M.update_font "grow" end, { desc = "Increase font size" })
