@@ -20,7 +20,7 @@ M.defaults = {
 		delay = 300,
 		timeout = 150,
 	},
-	reset_font = vim.api.nvim_get_option "guifont",
+	reset_font_size = 14,
 }
 
 return M

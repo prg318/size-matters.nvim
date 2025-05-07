@@ -45,10 +45,11 @@ function M.update_font(modification, amount)
 end
 
 function M.reset_font()
-	vim.cmd(":GuiFont! " .. config.reset_font)
+	local font_reset_string = string.match(vim.api.nvim_get_option "guifont", "(.+):") .. ":h" .. config.reset_font_size
+	vim.cmd(":GuiFont! " .. font_reset_string)
 
 	if not config.notifications or not config.notifications.enable then return end
-	notifications.send(" " .. config.reset_font, config.notifications)
+	notifications.send(" " .. font_reset_string, config.notifications)
 end
 
 local cmd = vim.api.nvim_create_user_command
@@ -64,7 +65,14 @@ if config.default_mappings then
 	map("n", "<C-->", function() M.update_font "shrink" end, { desc = "Decrease font size" })
 	map("n", "<C-ScrollWheelUp>", function() M.update_font "grow" end, { desc = "Increase font size" })
 	map("n", "<C-ScrollWheelDown>", function() M.update_font "shrink" end, { desc = "Decrease font size" })
-	map("n", "<A-C-=>", M.reset_font, { desc = "Reset to default font" })
+	map("n", "<C-0>", M.reset_font, { desc = "Reset to default font" })
+	map("i", "<C-+>", function() M.update_font "grow" end, { desc = "Increase font size" })
+	map("i", "<C-=>", function() M.update_font "grow" end, { desc = "Increase font size" })
+	map("i", "<C-S-+>", function() M.update_font "grow" end, { desc = "Increase font size" })
+	map("i", "<C-->", function() M.update_font "shrink" end, { desc = "Decrease font size" })
+	map("i", "<C-ScrollWheelUp>", function() M.update_font "grow" end, { desc = "Increase font size" })
+	map("i", "<C-ScrollWheelDown>", function() M.update_font "shrink" end, { desc = "Decrease font size" })
+	map("i", "<A-C-=>", M.reset_font, { desc = "Reset to default font" })
 end
 
 return M
