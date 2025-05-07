@@ -21,6 +21,7 @@ end
 ---@param modification "grow"|"shrink"
 ---@param amount? number|string
 function M.update_font(modification, amount)
+	if vim.fn.has('gui_running') == 0 then return end
 	get_font()
 
 	---@cast amount number
