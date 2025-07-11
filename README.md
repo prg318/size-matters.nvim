@@ -16,6 +16,8 @@ This fork uses `:GuiFont!` to set the font, so that warnings about pitch metrics
 
 Also adds `<C-=>` as a binding to increase font.
 
+This fork also now has support for [Neovide](https://neovide.dev/).
+
 ## Installation
 
 A simple way to install the plugin is via a plugin manager. E.g., [packer.nvim][3]
