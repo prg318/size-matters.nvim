@@ -41,8 +41,11 @@ function M.update_font(modification, amount)
 			notifications.send(" FontSize " .. curr_font.size - amount, config.notifications)
 		end
 	end
-
-	vim.cmd(":GuiFont! " .. guifont)
+	if vim.g.neovide then
+		vim.o.guifont = guifont
+	else
+		vim.cmd(":GuiFont! " .. guifont)
+	end
 end
 
 function M.reset_font()
